@@ -8,9 +8,10 @@
     "scheme": "cityguess",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "bundleIdentifier": "com.vladrayt.cityguess"
     },
     "android": {
+      "package": "com.vladrayt.cityguess",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",

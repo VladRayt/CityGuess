@@ -1,56 +1,47 @@
-# Welcome to your Expo app 👋
+# CityGuess
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Мобільна гра на [Expo](https://expo.dev) SDK 57 / Expo Router.
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Запуск
 
 ```bash
-npm run reset-project
+nvm use          # Node з .nvmrc
+yarn install
+yarn start       # Metro + Expo Dev Server (i — iOS, a — Android, w — web)
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Нативний білд і запуск на симуляторі/емуляторі (перший раз довго, далі інкрементально):
 
-### Other setup steps
+```bash
+yarn ios         # expo run:ios
+yarn android     # expo run:android
+yarn web         # expo start --web
+```
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+Нативні проєкти лежать у `ios/` та `android/`. Після змін в `app.json` або списку config-плагінів перегенеруй їх:
 
-## Learn more
+```bash
+npx expo prebuild --clean
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Скрипти
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+| Команда | Що робить |
+|---|---|
+| `yarn lint` | ESLint (`eslint-config-expo`) |
+| `yarn compile` | Перевірка типів `tsc --noEmit` |
+| `yarn doctor` | `expo-doctor` — перевірка сумісності залежностей |
 
-## Join the community
+## Структура
 
-Join our community of developers creating universal apps.
+- `src/app/` — екрани та layout (file-based routing)
+- `src/components/` — UI-компоненти (`ThemedText`, `ThemedView`, таби)
+- `src/constants/theme.ts` — кольори, шрифти, відступи
+- `src/hooks/` — `useTheme`, `useColorScheme`
+- `assets/images/` — іконки та splash
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Патчі (`patches/`)
+
+Застосовуються автоматично через `patch-package` у `postinstall`.
+
+- **`expo-modules-jsi+57.0.6.patch`** — знімає `SWIFT_RETURNS_RETAINED` з конструкторів `RuntimeScheduler`. Анотацію додали в 57.0.5 під Xcode 27 ([expo/expo#49120](https://github.com/expo/expo/pull/49120)), але Swift 6.2.3 (Xcode 26.2) вважає її помилкою, і `ExpoModulesJSI.xcframework` не збирається. Прибрати, коли вийде фікс по [expo/expo#49214](https://github.com/expo/expo/issues/49214) або після переходу на Xcode 27.
