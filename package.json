@@ -30,8 +30,6 @@
     "@types/react": "~19.2.2",
     "eslint": "^9.0.0",
     "eslint-config-expo": "~57.0.2",
-    "patch-package": "^8.0.1",
-    "postinstall-postinstall": "^2.1.0",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -41,8 +39,7 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "compile": "tsc --noEmit -p . --pretty",
-    "doctor": "npx expo-doctor",
-    "postinstall": "patch-package"
+    "doctor": "npx expo-doctor"
   },
   "private": true
 }

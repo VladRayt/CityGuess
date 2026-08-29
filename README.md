@@ -39,9 +39,3 @@ npx expo prebuild --clean
 - `src/constants/theme.ts` — кольори, шрифти, відступи
 - `src/hooks/` — `useTheme`, `useColorScheme`
 - `assets/images/` — іконки та splash
-
-## Патчі (`patches/`)
-
-Застосовуються автоматично через `patch-package` у `postinstall`.
-
-- **`expo-modules-jsi+57.0.6.patch`** — знімає `SWIFT_RETURNS_RETAINED` з конструкторів `RuntimeScheduler`. Анотацію додали в 57.0.5 під Xcode 27 ([expo/expo#49120](https://github.com/expo/expo/pull/49120)), але Swift 6.2.3 (Xcode 26.2) вважає її помилкою, і `ExpoModulesJSI.xcframework` не збирається. Прибрати, коли вийде фікс по [expo/expo#49214](https://github.com/expo/expo/issues/49214) або після переходу на Xcode 27.
