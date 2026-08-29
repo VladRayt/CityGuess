@@ -56,7 +56,7 @@ npx expo prebuild --clean
 
 `@react-native-firebase/{app,auth,firestore,remote-config,analytics,storage,crashlytics}` підключено **через CocoaPods**, не через SPM: плагін `@react-native-firebase/app` має `ios.disableSPM: true`, а `expo-build-properties` — `useFrameworks: "static"` + `forceStaticLinking` для всіх `RNFB*`-подів. Причина: precompiled-модулі Expo 57 роблять усі React-Core-залежні поди статичними, і SPM-режим RNFB v26 (dynamic frameworks) не лінкується. Analytics — з `ios.withoutAdIdSupport: true` (без IDFA; продуктова аналітика — в Amplitude).
 
-`GoogleService-Info.plist` і `google-services.json` у корені — **заглушки з валідним форматом**, щоб проєкт збирався. Перед реальним бекендом замінити на файли з Firebase console (bundle id / package `com.vladrayt.cityguess`) і перезапустити `npx expo prebuild --clean`.
+`GoogleService-Info.plist` і `google-services.json` у корені — реальні файли Firebase-проєкту `cityguess-4a8f0` (iOS bundle id і Android package — `com.vladrayt.cityguess`). Їх копії живуть у `ios/CityGuess/` та `android/app/` — після оновлення файлів у корені або запусти `npx expo prebuild --clean`, або скопіюй їх туди вручну. Google Analytics для Firebase вимкнено (`IS_ANALYTICS_ENABLED = false`) — продуктова аналітика йде в Amplitude.
 
 ## Структура
 

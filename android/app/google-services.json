@@ -1,14 +1,13 @@
 {
-  "_comment": "SPIKE PLACEHOLDER — well-formed but fake values so the Android project configures. Replace with the real file from the Firebase console.",
   "project_info": {
-    "project_number": "123456789012",
-    "project_id": "cityguess-spike",
-    "storage_bucket": "cityguess-spike.appspot.com"
+    "project_number": "144590822289",
+    "project_id": "cityguess-4a8f0",
+    "storage_bucket": "cityguess-4a8f0.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:0123456789abcdef",
+        "mobilesdk_app_id": "1:144590822289:android:d70440b47461585aaa1830",
         "android_client_info": {
           "package_name": "com.vladrayt.cityguess"
         }
@@ -16,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyPLACEHOLDER0000000000000000000000"
+          "current_key": "AIzaSyA-tFI2E4a24vG1E7qdjSqxUUsSUKb-m58"
         }
       ],
       "services": {
