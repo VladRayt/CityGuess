@@ -69,6 +69,7 @@ npx expo prebuild --clean
 | Змінна | Сервіс |
 |---|---|
 | `EXPO_PUBLIC_APPSFLYER_DEV_KEY` | AppsFlyer Dev Key (один на акаунт) |
+| `EXPO_PUBLIC_AMPLITUDE_API_KEY` | Amplitude project API key (при ініціалізації SDK вказати data center: US або EU — `serverZone`) |
 
 ## Структура
 
