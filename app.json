@@ -43,6 +43,9 @@
       [
         "expo-build-properties",
         {
+          "android": {
+            "kotlinVersion": "2.2.21"
+          },
           "ios": {
             "useFrameworks": "static",
             "forceStaticLinking": [
@@ -111,7 +114,8 @@
           }
         }
       ],
-      "@react-native-firebase/crashlytics"
+      "@react-native-firebase/crashlytics",
+      "./plugins/with-android-kotlin"
     ],
     "experiments": {
       "typedRoutes": true,

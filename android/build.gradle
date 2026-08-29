@@ -10,7 +10,9 @@ buildscript {
         classpath 'com.google.gms:google-services:4.4.4'
     classpath('com.android.tools.build:gradle')
     classpath('com.facebook.react:react-native-gradle-plugin')
-    classpath('org.jetbrains.kotlin:kotlin-gradle-plugin')
+    // kotlin-gradle-plugin pinned by plugins/with-android-kotlin.js
+    def cityguessKotlinVersion = project.findProperty('android.kotlinVersion')
+    classpath(cityguessKotlinVersion ? "org.jetbrains.kotlin:kotlin-gradle-plugin:${cityguessKotlinVersion}" : 'org.jetbrains.kotlin:kotlin-gradle-plugin')
   }
 }
 
@@ -23,4 +25,9 @@ allprojects {
 }
 
 apply plugin: "expo-root-project"
+// @generated begin cityguess-appsflyer-kotlin-stdlib - expo prebuild (DO NOT MODIFY) sync-35ed1a6023ab274ef89e0208b7170a59f5aa777a
+// react-native-appsflyer reads rootProject.ext.kotlin_stdlib_version (fallback 2.4.10).
+// Keep it in lock-step with the project's Kotlin compiler (see plugins/with-android-kotlin.js).
+ext.kotlin_stdlib_version = ext.kotlinVersion
+// @generated end cityguess-appsflyer-kotlin-stdlib
 apply plugin: "com.facebook.react.rootproject"

@@ -41,10 +41,10 @@ npx expo prebuild --clean
 |---|---|---|
 | `@shopify/react-native-skia` 2.11.1 | 360° панорами (шейдер), картка-результат | ставити явно ≥ 2.6.4 |
 | `expo-sensors` | гіроскоп для панорами (`DeviceMotion`) | `NSMotionUsageDescription` через плагін |
-| `react-native-google-mobile-ads` | rewarded video («6-та спроба») | реальні App ID в `app.json` (акаунт `ca-app-pub-5468388035026396`); у dev-збірках запити реклами робити з `TestIds` |
+| `react-native-google-mobile-ads` | rewarded video («6-та спроба») | реальні App ID в `app.json` (акаунт `ca-app-pub-5468388035026396`); у dev-збірках запити реклами робити з `TestIds`; GMA SDK 25.4 зібраний Kotlin 2.3 → проєкт на Kotlin **2.2.21**: `expo-build-properties.android.kotlinVersion` + `plugins/with-android-kotlin.js` (пінить KGP на root-classpath — сама властивість міняє лише каталог Expo, компілятор лишався б 2.1.20) |
 | `expo-tracking-transparency` | ATT-промпт (AdMob, AppsFlyer) | |
 | `react-native-purchases` | RevenueCat: підписка / lifetime | без плагіна; увімкнути In-App Purchase capability |
-| `react-native-appsflyer` 7.x | OneLink діплінки «виклик другу», атрибуція | API 7.x: `init`/`start`/`registerDeepLinkListener`; ATT запитувати до `init()` |
+| `react-native-appsflyer` 7.x | OneLink діплінки «виклик другу», атрибуція | API 7.x: `init`/`start`/`registerDeepLinkListener`; ATT запитувати до `init()`. Android: локальний плагін `plugins/with-android-kotlin.js` пінить `kotlin_stdlib_version` до Kotlin проєкту (інакше модуль тягне stdlib 2.4.x і `compileReleaseKotlin` падає) |
 | `react-native-mmkv` 4 + `react-native-nitro-modules` | локальний стор (стрік, історія) | |
 | `@amplitude/analytics-react-native` | продуктова аналітика | потребує `@react-native-async-storage/async-storage` |
 | `react-native-view-shot` 5.1.1 | скріншот картки-результату | |
