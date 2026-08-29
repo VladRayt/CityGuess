@@ -58,6 +58,18 @@ npx expo prebuild --clean
 
 `GoogleService-Info.plist` і `google-services.json` у корені — реальні файли Firebase-проєкту `cityguess-4a8f0` (iOS bundle id і Android package — `com.vladrayt.cityguess`). Їх копії живуть у `ios/CityGuess/` та `android/app/` — після оновлення файлів у корені або запусти `npx expo prebuild --clean`, або скопіюй їх туди вручну. Google Analytics для Firebase вимкнено (`IS_ANALYTICS_ENABLED = false`) — продуктова аналітика йде в Amplitude.
 
+## Ключі та env
+
+Клієнтські ключі сервісів (AppsFlyer Dev Key, згодом RevenueCat/Amplitude/AdMob unit IDs) — це `EXPO_PUBLIC_*`-змінні: вони інлайняться в JS-бандл, тому не є секретами, але в git не комітяться.
+
+- Локально: `.env` (ігнорується git) — скопіюй `.env.example` → `.env` і заповни.
+- Хмарні білди: ті самі змінні лежать в EAS environment variables проєкту `@vlad25032004/CityGuess` для `development` / `preview` / `production` (`eas env:list --environment <env>`; оновити — `eas env:update`). Підтягнути локально: `eas env:pull --environment development`.
+- Build-time ідентифікатори (AdMob App ID, bundle id, Firebase-файли) живуть в `app.json` та конфіг-файлах, не в env.
+
+| Змінна | Сервіс |
+|---|---|
+| `EXPO_PUBLIC_APPSFLYER_DEV_KEY` | AppsFlyer Dev Key (один на акаунт) |
+
 ## Структура
 
 - `src/app/` — екрани та layout (file-based routing)
