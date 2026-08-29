@@ -41,7 +41,7 @@ npx expo prebuild --clean
 |---|---|---|
 | `@shopify/react-native-skia` 2.11.1 | 360° панорами (шейдер), картка-результат | ставити явно ≥ 2.6.4 |
 | `expo-sensors` | гіроскоп для панорами (`DeviceMotion`) | `NSMotionUsageDescription` через плагін |
-| `react-native-google-mobile-ads` | rewarded video («6-та спроба») | в `app.json` — **тестові** App ID Google; замінити на свої перед релізом |
+| `react-native-google-mobile-ads` | rewarded video («6-та спроба») | реальні App ID в `app.json` (акаунт `ca-app-pub-5468388035026396`); у dev-збірках запити реклами робити з `TestIds` |
 | `expo-tracking-transparency` | ATT-промпт (AdMob, AppsFlyer) | |
 | `react-native-purchases` | RevenueCat: підписка / lifetime | без плагіна; увімкнути In-App Purchase capability |
 | `react-native-appsflyer` 7.x | OneLink діплінки «виклик другу», атрибуція | API 7.x: `init`/`start`/`registerDeepLinkListener`; ATT запитувати до `init()` |

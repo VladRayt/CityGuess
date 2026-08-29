@@ -34,7 +34,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>app-1-123456789012-ios-0123456789abcdef</string>
+				<string>app-1-144590822289-ios-a6ccd67beef4c0c6aa1830</string>
 			</array>
 		</dict>
 		<dict>
@@ -47,7 +47,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-3940256099942544~1458002511</string>
+	<string>ca-app-pub-5468388035026396~8422108972</string>
 	<key>GADDelayAppMeasurementInit</key>
 	<false/>
 	<key>LSMinimumSystemVersion</key>
