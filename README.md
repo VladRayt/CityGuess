@@ -72,6 +72,12 @@ npx expo prebuild --clean
 | `EXPO_PUBLIC_AMPLITUDE_API_KEY` | Amplitude project API key (org `long-bar-429391`, **EU** data center) |
 | `EXPO_PUBLIC_AMPLITUDE_SERVER_ZONE` | `EU` — передається в `init(..., { serverZone })`; без цього події підуть у US і загубляться |
 
+Секрети **пайплайну контенту** (скрипти курації, не апка) — теж у `.env`, але **без** `EXPO_PUBLIC_` і не в EAS:
+
+| Змінна | Сервіс |
+|---|---|
+| `MAPILLARY_ACCESS_TOKEN` | Mapillary API v4 client token (`MLY\|…`), app `CityGuess` (id 28206393472360376) — пошук/завантаження панорам |
+
 ## Структура
 
 - `src/app/` — екрани та layout (file-based routing)
