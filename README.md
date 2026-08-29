@@ -31,6 +31,28 @@ npx expo prebuild --clean
 | `yarn lint` | ESLint (`eslint-config-expo`) |
 | `yarn compile` | Перевірка типів `tsc --noEmit` |
 | `yarn doctor` | `expo-doctor` — перевірка сумісності залежностей |
+| `yarn test` | Jest (`jest-expo`) — тести ігрової логіки |
+
+## Стек (нативні модулі)
+
+Проєкт — dev build (`expo-dev-client`), Expo Go не підтримується. Нативні залежності та їх конфіг-плагіни в `app.json`:
+
+| Бібліотека | Для чого | Примітки |
+|---|---|---|
+| `@shopify/react-native-skia` 2.11.1 | 360° панорами (шейдер), картка-результат | ставити явно ≥ 2.6.4 |
+| `expo-sensors` | гіроскоп для панорами (`DeviceMotion`) | `NSMotionUsageDescription` через плагін |
+| `react-native-google-mobile-ads` | rewarded video («6-та спроба») | в `app.json` — **тестові** App ID Google; замінити на свої перед релізом |
+| `expo-tracking-transparency` | ATT-промпт (AdMob, AppsFlyer) | |
+| `react-native-purchases` | RevenueCat: підписка / lifetime | без плагіна; увімкнути In-App Purchase capability |
+| `react-native-appsflyer` 7.x | OneLink діплінки «виклик другу», атрибуція | API 7.x: `init`/`start`/`registerDeepLinkListener`; ATT запитувати до `init()` |
+| `react-native-mmkv` 4 + `react-native-nitro-modules` | локальний стор (стрік, історія) | |
+| `@amplitude/analytics-react-native` | продуктова аналітика | потребує `@react-native-async-storage/async-storage` |
+| `react-native-view-shot` 5.1.1 | скріншот картки-результату | |
+| `expo-notifications` | локальні пуші (стрік, нові міста) | |
+| `expo-sharing`, `expo-haptics`, `expo-store-review`, `expo-localization`, `expo-file-system` | шеринг, вібро, оцінка, локаль, кеш файлів | |
+| `zustand`, `i18next` + `react-i18next` | стейт, локалізація (UI — English, каркас i18n) | JS-only |
+
+Firebase (Firestore, Remote Config, Storage, Crashlytics, Anonymous Auth) **ще не підключено** — див. нотатки спайку: SPM-режим RNFB v26 не лінкується під Expo 57 (precompiled-модулі роблять усі RN-поди статичними); шлях — CocoaPods (`disableSPM` + static frameworks) або Supabase.
 
 ## Структура
 
