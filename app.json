@@ -20,7 +20,10 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "com.google.android.gms.permission.AD_ID"
+      ]
     },
     "web": {
       "output": "static",
@@ -79,7 +82,10 @@
           "androidAppId": "ca-app-pub-3940256099942544~3347511713",
           "iosAppId": "ca-app-pub-3940256099942544~1458002511",
           "userTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you.",
-          "skAdNetworkItems": ["cstr6suwn9.skadnetwork", "4fzdc2evr5.skadnetwork"]
+          "skAdNetworkItems": [
+            "cstr6suwn9.skadnetwork",
+            "4fzdc2evr5.skadnetwork"
+          ]
         }
       ],
       [
@@ -110,6 +116,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "929101b9-fb57-48d6-852e-9f148f06c60b"
+      }
+    },
+    "owner": "vlad25032004"
   }
 }
