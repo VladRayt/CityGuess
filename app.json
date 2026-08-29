@@ -8,10 +8,12 @@
     "scheme": "cityguess",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "bundleIdentifier": "com.vladrayt.cityguess"
+      "bundleIdentifier": "com.vladrayt.cityguess",
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "package": "com.vladrayt.cityguess",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -35,7 +37,23 @@
         }
       ],
       "expo-dev-client",
-      "expo-build-properties",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static",
+            "forceStaticLinking": [
+              "RNFBApp",
+              "RNFBAuth",
+              "RNFBAnalytics",
+              "RNFBCrashlytics",
+              "RNFBFirestore",
+              "RNFBRemoteConfig",
+              "RNFBStorage"
+            ]
+          }
+        }
+      ],
       [
         "expo-sensors",
         {
@@ -69,7 +87,25 @@
         {
           "shouldUseStrictMode": false
         }
-      ]
+      ],
+      [
+        "@react-native-firebase/app",
+        {
+          "ios": {
+            "disableSPM": true
+          }
+        }
+      ],
+      "@react-native-firebase/auth",
+      [
+        "@react-native-firebase/analytics",
+        {
+          "ios": {
+            "withoutAdIdSupport": true
+          }
+        }
+      ],
+      "@react-native-firebase/crashlytics"
     ],
     "experiments": {
       "typedRoutes": true,

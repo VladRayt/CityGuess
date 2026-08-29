@@ -3,7 +3,8 @@
   "EX_DEV_CLIENT_NETWORK_INSPECTOR": "true",
   "expo.inlineModules.watchedDirectories": "[]",
   "expo.inlineModules.xcodeProjectTargets": "{\"mainTarget\":\"CityGuess\",\"targets\":[]}",
-  "ios.forceStaticLinking": "[]",
+  "ios.useFrameworks": "static",
+  "ios.forceStaticLinking": "[\"RNFBApp\",\"RNFBAuth\",\"RNFBAnalytics\",\"RNFBCrashlytics\",\"RNFBFirestore\",\"RNFBRemoteConfig\",\"RNFBStorage\"]",
   "apple.privacyManifestAggregationEnabled": "true",
   "EXPO_USE_PRECOMPILED_MODULES": "true"
 }

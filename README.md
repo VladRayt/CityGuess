@@ -52,7 +52,11 @@ npx expo prebuild --clean
 | `expo-sharing`, `expo-haptics`, `expo-store-review`, `expo-localization`, `expo-file-system` | шеринг, вібро, оцінка, локаль, кеш файлів | |
 | `zustand`, `i18next` + `react-i18next` | стейт, локалізація (UI — English, каркас i18n) | JS-only |
 
-Firebase (Firestore, Remote Config, Storage, Crashlytics, Anonymous Auth) **ще не підключено** — див. нотатки спайку: SPM-режим RNFB v26 не лінкується під Expo 57 (precompiled-модулі роблять усі RN-поди статичними); шлях — CocoaPods (`disableSPM` + static frameworks) або Supabase.
+### Firebase
+
+`@react-native-firebase/{app,auth,firestore,remote-config,analytics,storage,crashlytics}` підключено **через CocoaPods**, не через SPM: плагін `@react-native-firebase/app` має `ios.disableSPM: true`, а `expo-build-properties` — `useFrameworks: "static"` + `forceStaticLinking` для всіх `RNFB*`-подів. Причина: precompiled-модулі Expo 57 роблять усі React-Core-залежні поди статичними, і SPM-режим RNFB v26 (dynamic frameworks) не лінкується. Analytics — з `ios.withoutAdIdSupport: true` (без IDFA; продуктова аналітика — в Amplitude).
+
+`GoogleService-Info.plist` і `google-services.json` у корені — **заглушки з валідним форматом**, щоб проєкт збирався. Перед реальним бекендом замінити на файли з Firebase console (bundle id / package `com.vladrayt.cityguess`) і перезапустити `npx expo prebuild --clean`.
 
 ## Структура
 

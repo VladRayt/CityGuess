@@ -34,6 +34,12 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>app-1-123456789012-ios-0123456789abcdef</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
 				<string>exp+cityguess</string>
 			</array>
 		</dict>
