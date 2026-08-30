@@ -71,6 +71,7 @@ npx expo prebuild --clean
 | `EXPO_PUBLIC_APPSFLYER_DEV_KEY` | AppsFlyer Dev Key (один на акаунт) |
 | `EXPO_PUBLIC_AMPLITUDE_API_KEY` | Amplitude project API key (org `long-bar-429391`, **EU** data center) |
 | `EXPO_PUBLIC_AMPLITUDE_SERVER_ZONE` | `EU` — передається в `init(..., { serverZone })`; без цього події підуть у US і загубляться |
+| `EXPO_PUBLIC_ADMOB_REWARDED_ANDROID` / `_IOS` | AdMob Rewarded ad unit (`sixth_attempt`) — реальні ID; у dev-збірках використовувати `TestIds.REWARDED` |
 
 Секрети **пайплайну контенту** (скрипти курації, не апка) — теж у `.env`, але **без** `EXPO_PUBLIC_` і не в EAS:
 
