@@ -2,6 +2,8 @@
 
 Мобільна гра на [Expo](https://expo.dev) SDK 57 / Expo Router.
 
+> Повний контекст проєкту — продукт, рішення і причини, стек, гочі toolchain, стан акаунтів, домовленості — у [`docs/PROJECT.md`](docs/PROJECT.md).
+
 ## Запуск
 
 ```bash
